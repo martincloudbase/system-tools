@@ -1,6 +1,6 @@
 #!/bin/bash
 
-timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+LOGFILE="$HOME/system-tools/disk-check.log"
 
-echo "[$timestamp] Disk usage overview"
-df -h | grep "/$"
+echo "[$(date)] Disk usage overview" | tee -a "$LOGFILE"
+df -h / | tee -a "$LOGFILE"
